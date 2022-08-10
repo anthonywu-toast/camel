@@ -66,6 +66,15 @@ public final class CommonCreationStrategyImpl {
 
             builder.deadLetterPolicy(policy.build());
         }
+
+        if (endpointConfiguration.getAckTimeoutRedeliveryBackoff() != null) {
+            builder.ackTimeoutRedeliveryBackoff(endpointConfiguration.getAckTimeoutRedeliveryBackoff());
+        }
+
+        if (endpointConfiguration.getNegativeAckRedeliveryBackoff() != null) {
+            builder.negativeAckRedeliveryBackoff(endpointConfiguration.getNegativeAckRedeliveryBackoff());
+        }
+
         return builder;
     }
 }
